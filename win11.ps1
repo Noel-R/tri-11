@@ -21,15 +21,15 @@ $OSLanguage = 'en-gb'
 $Global:MyOSDCloud = [ordered]@{
     Restart = [bool]$true
     RecoveryPartition = [bool]$true
-    OEMActivation = [bool]$true
+    OEMActivation = [bool]$false
     WindowsUpdate = [bool]$true
     WindowsUpdateDrivers = [bool]$true
     WindowsDefenderUpdate = [bool]$true
-    SetTimeZone = [bool]$true
+    SetTimeZone = [bool]$false
     ClearDiskConfirm = [bool]$false
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB = [bool]$true
-    CheckSHA1 = [bool]$true
+    CheckSHA1 = [bool]$false
 }
 
 #Used to Determine Driver Pack
