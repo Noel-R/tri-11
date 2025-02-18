@@ -16,22 +16,6 @@ $OSEdition = 'Enterprise'
 $OSActivation = 'Volume'
 $OSLanguage = 'en-gb'
 
-
-#Set OSDCloud Vars
-$Global:MyOSDCloud = [ordered]@{
-    Restart = [bool]$true
-    RecoveryPartition = [bool]$false
-    OEMActivation = [bool]$false
-    WindowsUpdate = [bool]$false
-    WindowsUpdateDrivers = [bool]$false
-    WindowsDefenderUpdate = [bool]$false
-    SetTimeZone = [bool]$false
-    ClearDiskConfirm = [bool]$false
-    ShutdownSetupComplete = [bool]$false
-    SyncMSUpCatDriverUSB = [bool]$true
-    CheckSHA1 = [bool]$false
-}
-
 #Used to Determine Driver Pack
 $DriverPack = Get-OSDCloudDriverPack -Product $Product -OSVersion $OSVersion -OSReleaseID $OSReleaseID
 
@@ -44,6 +28,6 @@ if ($DriverPack){
 Write-Output $Global:MyOSDCloud
 
 #Launch OSDCloud
-write-host "Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI"
+write-host "Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI -Restart"
 
-Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI
+Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI -Restart
