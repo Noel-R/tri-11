@@ -25,7 +25,7 @@ $Global:MyOSDCloud = [ordered]@{
     WindowsUpdate = [bool]$false
     WindowsUpdateDrivers = [bool]$false
     WindowsDefenderUpdate = [bool]$false
-    SetTimeZone = [bool]$true
+    SetTimeZone = [bool]$false
     ClearDiskConfirm = [bool]$false
     ShutdownSetupComplete = [bool]$false
     SyncMSUpCatDriverUSB = [bool]$true
@@ -42,10 +42,6 @@ if ($DriverPack){
 
 #write variables to console
 Write-Output $Global:MyOSDCloud
-
-#Update Files in Module that have been updated since last PowerShell Gallery Build (Testing Only)
-$ModulePath = (Get-ChildItem -Path "$($Env:ProgramFiles)\WindowsPowerShell\Modules\osd" | Where-Object {$_.Attributes -match "Directory"} | Select-Object -Last 1).fullname
-import-module "$ModulePath\OSD.psd1" -Force
 
 #Launch OSDCloud
 write-host "Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -ZTI"
